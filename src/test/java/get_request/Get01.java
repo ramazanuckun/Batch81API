@@ -1,3 +1,5 @@
+package get_request;
+
 import io.restassured.response.Response;
 import org.junit.Test;
 
@@ -58,6 +60,28 @@ response.prettyPrint();
 
 
         response.then().assertThat().statusCode(200).contentType("application/json").statusLine("HTTP/1.1 200 OK");
+
+        //Status codu ekrana yazdirin
+
+        System.out.println("Status Code:"+response.getStatusCode());
+
+        //Content Type konsola yazdiralim
+
+        System.out.println("Content Type:"+response.getContentType());
+
+        //Status Line konsola yazdiralim
+
+        System.out.println("Status Line:"+response.getStatusLine());
+
+//Header Konsola Yazdiralim
+        System.out.println("Header:"+response.getHeader("Server"));
+
+        //Headers konsola yazdiralim
+        System.out.println("Headers:"+response.getHeaders());
+
+        //Time konsola yazdiralim
+
+        System.out.println("Headers:"+response.getHeaders());
 
     }
 }
