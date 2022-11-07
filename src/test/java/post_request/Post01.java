@@ -18,11 +18,12 @@ public class Post01 extends JsonplaceholderBaseUrl {
 /*
     Given
       1)  https://jsonplaceholder.typicode.com/todos
-      2)  {
-            "userId": 55,
-            "title": "Tidy your room",
-            "completed": false
-           }
+      2{
+    "userId": 155,
+    "title": "ramazan rahmi uckun",
+    "completed": true,
+    "id": 201
+}
    When
     I send POST Request to the Url
    Then
