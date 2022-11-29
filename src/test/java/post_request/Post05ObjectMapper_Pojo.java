@@ -5,7 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
 import pojos.JsonPlaceHolderPojo;
-import utils.ObjecMapperUtils;
+import utils.ObjectMapperUtils;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
@@ -51,7 +51,7 @@ public class Post05ObjectMapper_Pojo extends JsonplaceholderBaseUrl {
 
 //Do assertion
 
-     JsonPlaceHolderPojo actualData=   ObjecMapperUtils.convertJsonToJava(response.asString(),JsonPlaceHolderPojo.class);
+     JsonPlaceHolderPojo actualData=   ObjectMapperUtils.convertJsonToJava(response.asString(),JsonPlaceHolderPojo.class);
 assertEquals(201,response.getStatusCode());
 assertEquals(expectedData.getUserId(),actualData.getUserId());
 assertEquals(expectedData.getCompleted(),actualData.getCompleted());

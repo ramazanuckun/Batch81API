@@ -4,10 +4,8 @@ import base_urls.JsonplaceholderBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
 import pojos.JsonPlaceHolderPojo;
-import utils.ObjecMapperUtils;
+import utils.ObjectMapperUtils;
 
-
-import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
@@ -49,7 +47,7 @@ public class Get14ObjectMapper_Pojo extends JsonplaceholderBaseUrl {
 
 //Do Assertion
 
-JsonPlaceHolderPojo actualDats= ObjecMapperUtils.convertJsonToJava(response.asString(),JsonPlaceHolderPojo.class);
+JsonPlaceHolderPojo actualDats= ObjectMapperUtils.convertJsonToJava(response.asString(),JsonPlaceHolderPojo.class);
 
 assertEquals(200,response.getStatusCode());
 assertEquals(expectedData.getTitle(),actualDats.getTitle());

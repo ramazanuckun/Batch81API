@@ -1,9 +1,9 @@
-package delete_requests;
+package delete_Requests;
 
 import base_urls.JsonplaceholderBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
-import utils.ObjecMapperUtils;
+import utils.ObjectMapperUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,33 +24,29 @@ public class Delete01 extends JsonplaceholderBaseUrl {
      */
 
     @Test
-    public void delete01() {
+    public void delete01(){
         //Set the Url
-        spec.pathParams("first", "todos", "second", 198);
+        spec.pathParams("first","todos","second",198);
 
         //Set the expected data
+        Map<String,String> expectedData = new HashMap<>();
 
-        Map<String, String> expectedData = new HashMap<>();
-//Send the request and the response
-
+        //Send the Request and Get the Response
         Response response = given().spec(spec).when().delete("/{first}/{second}");
-        response.prettyPrint();
 
+        //Do Assertion
+        Map actualData = ObjectMapperUtils.convertJsonToJava(response.asString(), HashMap.class);
 
-//Do Assertion
+        assertEquals(200,response.getStatusCode());
 
-        Map<String, Object> actualData = ObjecMapperUtils.convertJsonToJava(response.asString(), HashMap.class);
-        System.out.println("actualData = " + actualData);
-
-        assertEquals(200, response.getStatusCode());
-//1.yol
+        //1. Yol
         assertEquals(expectedData, actualData);
-        //2.yol
+
+        //2. Yol
         assertTrue(actualData.isEmpty());
 
-        //3.yol
-
-        assertEquals(0, actualData.size());
+        //3. Yol
+        assertEquals(0,actualData.size());
 
     }
 }

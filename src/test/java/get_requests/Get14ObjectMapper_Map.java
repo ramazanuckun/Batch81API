@@ -1,12 +1,10 @@
 package get_requests;
 
 import base_urls.JsonplaceholderBaseUrl;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
-import pojos.JsonPlaceHolderPojo;
 import test_data.JsonPlaceHolderTestData;
-import utils.ObjecMapperUtils;
+import utils.ObjectMapperUtils;
 
 
 import java.util.Map;
@@ -38,7 +36,7 @@ public class Get14ObjectMapper_Map extends JsonplaceholderBaseUrl {
 
        String expectedDataInstring= new JsonPlaceHolderTestData().expectedDataInString(10,"quis eius est sint explicabo",true);
 
-        Map<String,Object>expectedData= ObjecMapperUtils.convertJsonToJava(expectedDataInstring,Map.class);
+        Map<String,Object>expectedData= ObjectMapperUtils.convertJsonToJava(expectedDataInstring,Map.class);
 
         System.out.println("expectedData = " + expectedData);
 //Send the Request and the response data
@@ -48,7 +46,7 @@ response.prettyPrint();
 
 //Do assertion
 
-Map actualsData=ObjecMapperUtils.convertJsonToJava(response.asString(),Map.class);
+Map actualsData= ObjectMapperUtils.convertJsonToJava(response.asString(),Map.class);
 assertEquals(200,response.getStatusCode());
 assertEquals(expectedData.get("userId"),actualsData.get("userId"));
 assertEquals(expectedData.get("title"),actualsData.get("title"));

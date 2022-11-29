@@ -5,7 +5,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.IOException;
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ObjecMapperUtils {
+public class ObjectMapperUtils {
 
 
      //new ObjectMapper().readValue(response.asString(), HashMap.class);
